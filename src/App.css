@@ -61,8 +61,10 @@ form button:hover {
   transition: all 1s ease;
 }
 
+
 .todo-item > input {
   padding: .5em;
+  border: none;
 }
 
 select {
