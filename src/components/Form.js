@@ -30,6 +30,7 @@ const Form = ({setInputText,inputText,todos,setTodos,setStatus}) => {
     const deleteAllHandler = (e) => {
         e.preventDefault()
         setTodos([])
+        localStorage.setItem("id", 0)
     }
 
     return(

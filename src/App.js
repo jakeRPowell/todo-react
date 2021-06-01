@@ -12,41 +12,38 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState(todos)
   
   
-  const filterHandler = () => {
-    switch(status) {
-      case 'complete':
-        setFilteredTodos(todos.filter(todo => todo.complete === true));
-        
-        break;
-      case 'incomplete':
-        setFilteredTodos(todos.filter(todo => todo.complete === false));
-        
-        break;
-      default:
-        setFilteredTodos(todos)
-        
-    }
-  }  
+  
 
   useEffect(() => {
-    filterHandler();
+    (function filterHandler() {
+      switch(status) {
+        case 'complete':
+          setFilteredTodos(todos.filter(todo => todo.complete === true));
+          
+          break;
+        case 'incomplete':
+          setFilteredTodos(todos.filter(todo => todo.complete === false));
+          
+          break;
+        default:
+          setFilteredTodos(todos)
+          
+      }
+    })()
   }, [todos,status])
 
-  const retrieveStoredTodos = () => {
-    setTodos(JSON.parse(localStorage.getItem("todos") || "[]"))
-  }
+
 
   useEffect(() => {
-    retrieveStoredTodos();
+    //retrieveStoredTodos
+    setTodos(JSON.parse(localStorage.getItem("todos") || "[]"))
   }, [])
 
-  const writeTodoToLocalStorage = () => {
-    //setTodos(JSON.parse(localStorage.getItem("users") || "[]"))
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }
+  
 
   useEffect(() => {
-    writeTodoToLocalStorage();
+    //writeTodoToLocalStorage
+    localStorage.setItem('todos', JSON.stringify(todos))
   }, [todos])
 
 
