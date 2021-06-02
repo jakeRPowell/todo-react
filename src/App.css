@@ -13,6 +13,13 @@ header {
   font-size: 2rem;
 }
 
+.link-to-github {
+  font-size: 12px;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+}
+
 header,
 form {
   min-height: 20vh;
